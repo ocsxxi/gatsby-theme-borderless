@@ -13,10 +13,10 @@ interface SEOPropsType {
 }
 
 const SEO = (props: SEOPropsType) => {
-  const { description, lang, meta, title, keywords } = props;
+    const { description, lang, meta, title, keywords } = props;
 
-  const { site } = useStaticQuery(
-    graphql`
+    const { site } = useStaticQuery(
+        graphql`
       query {
         site {
           siteMetadata {
@@ -28,58 +28,58 @@ const SEO = (props: SEOPropsType) => {
         }
       }
     `
-  );
+    );
 
-  const metaDescription = description ?? site.siteMetadata.description;
-  const metaTtitle = site.siteMetadata.title;
+    const metaDescription = description ?? site.siteMetadata.description;
+    const metaTtitle = site.siteMetadata.title;
 
-  return (
-    <Helmet
-      htmlAttributes={{
-        lang: site.siteMetadata.language ?? lang,
-      }}
-      title={title}
-      titleTemplate={title === metaTtitle ? metaTtitle : `%s | ${metaTtitle}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-        {
-          name: `keywords`,
-          content: keywords,
-        },
-      ].concat(meta ?? [])}
-    />
-  );
+    return (
+        <Helmet
+            htmlAttributes={{
+                lang: site.siteMetadata.language ?? lang,
+            }}
+            title={title}
+            titleTemplate={title === metaTtitle ? metaTtitle : `%s | ${metaTtitle}`}
+            meta={[
+                {
+                    name: `description`,
+                    content: metaDescription,
+                },
+                {
+                    property: `og:title`,
+                    content: title,
+                },
+                {
+                    property: `og:description`,
+                    content: metaDescription,
+                },
+                {
+                    property: `og:type`,
+                    content: `website`,
+                },
+                {
+                    name: `twitter:card`,
+                    content: `summary`,
+                },
+                {
+                    name: `twitter:creator`,
+                    content: site.siteMetadata.author,
+                },
+                {
+                    name: `twitter:title`,
+                    content: title,
+                },
+                {
+                    name: `twitter:description`,
+                    content: metaDescription,
+                },
+                {
+                    name: `keywords`,
+                    content: keywords,
+                },
+            ].concat(meta ?? [])}
+        />
+    );
 };
 
 export default SEO;

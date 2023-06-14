@@ -12,40 +12,40 @@ import './styles/index.scss';
 import PostList from '../components/PostList';
 
 interface IndexPageProps {
-  path: string;
-  data: any;
+    path: string;
+    data: any;
 }
 
 const IndexPage = (props: IndexPageProps) => {
-  const { data } = props;
-  const posts = data.allMarkdownRemark.edges;
-  const title = data.site.siteMetadata.title;
+    const { data } = props;
+    const posts = data.allMarkdownRemark.edges;
+    const title = data.site.siteMetadata.title;
 
-  return (
-    <Layout>
-      <SEO title={title} />
-      <div className="index-wrap">
-        <Bio />
-        <div className="index-post-list-wrap">
-          <PostList posts={posts} />
-          {posts.length < 100 ? null : (
-            <div className="show-more-posts">
-              <div className="show-more-btn">
-                <Link to="/search">
-                  <Fa icon={faSearch} />
-                  <span>SHOW MORE POSTS</span>
-                </Link>
-              </div>
+    return (
+        <Layout>
+            <SEO title={title} />
+            <div className="index-wrap">
+                <Bio />
+                <div className="index-post-list-wrap">
+                    <PostList posts={posts} />
+                    {posts.length < 100 ? null : (
+                        <div className="show-more-posts">
+                            <div className="show-more-btn">
+                                <Link to="/search">
+                                    <Fa icon={faSearch} />
+                                    <span>SHOW MORE POSTS</span>
+                                </Link>
+                            </div>
+                        </div>
+                    )}
+                </div>
             </div>
-          )}
-        </div>
-      </div>
-    </Layout>
-  );
+        </Layout>
+    );
 };
 
 export const pageQuery = graphql`
-  query {
+  query IndexQuery {
     site {
       siteMetadata {
         title

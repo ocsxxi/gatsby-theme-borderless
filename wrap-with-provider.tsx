@@ -1,9 +1,8 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-
-import createStore from './src/state/createStore';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react/display-name */
+import * as React from "react";
+import { Provider } from "./src/state/contextprovider";
 
 export default ({ element }: { element: any }) => {
-  const store = createStore();
-  return <Provider store={store}>{element}</Provider>;
-};
+    return <Provider>{element}</Provider>
+}

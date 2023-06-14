@@ -14,15 +14,15 @@ interface SetPathAction {
 
 export type ActionTypes = SetIsMobileAction | SetPathAction;
 
-const setIsMobile = (isMobile: boolean) => {
-  return { type: SET_IS_MOBILE, isMobile };
+const setIsMobile = (isMobile: boolean): SetIsMobileAction => {
+    return { type: SET_IS_MOBILE, isMobile };
 };
 
-const setPath = (path: string, size?: string) => {
-  return { type: SET_PATH, path, size };
+const setPath = (path: string, size?: string): SetPathAction => {
+    return { type: SET_PATH, path, size };
 };
 
 export const actionCreators = {
-  setIsMobile,
-  setPath,
+    setIsMobile,
+    setPath,
 };

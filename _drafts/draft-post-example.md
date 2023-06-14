@@ -1,14 +1,14 @@
 ---
-title: Draft, 임시 게시물 예제
+title: Draft Example
 date: 1991-03-24
 ---
 
-## 임시 게시물 포스트
+## This is an example draft
 
-해당 게시물은 로컬 개발 환경에서만 표시되며, 배포시에는 표시되지 않습니다.
+This post is only displayed in the local development environment and will not be displayed during distribution.
 
-임시 게시물(draft)은 `./_drafts` 폴더에 위치합니다.
+The temporary post (draft) is located in folder `./_drafts`.
 
-해당 게시물 파일은 지워도되나, `./_drafts` 폴더는 절대 지우지 마세요.
+You are free to delete this post file, but NO NOT delete the `./_drafts` folder.
 
-자세한 가이드는 [Documents](<https://github.com/junhobaik/junhobaik.github.io/wiki/Document-(Borderless)>)를 확인해주세요.
+For detailed guidance, please refer to [Documents] (< https://github.com/junhobaik/junhobaik.github.io/wiki/Document- (Borderless)>) to confirm.

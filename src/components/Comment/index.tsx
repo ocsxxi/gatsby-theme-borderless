@@ -1,27 +1,42 @@
 import * as React from 'react';
-import { DiscussionEmbed } from 'disqus-react';
-import config from '../../../_config';
+// import { DiscussionEmbed } from 'disqus-react';
+import { graphql, useStaticQuery } from 'gatsby';
 
 interface CommentProps {
-  slug: string;
-  title: string;
+    slug: string;
+    title: string;
 }
 
 const Comment = ({ slug, title }: CommentProps) => {
-  const disqusConfig = {
-    shortname: config.disqusShortname,
-    config: {
-      url: `${config.siteUrl + slug}`,
-      identifier: slug,
-      title,
-    },
-  };
+    const data = useStaticQuery(graphql`
+        query CommentQuery {
+            site {
+                siteMetadata {
+                    siteUrl
+                    post {
+                        disqusShortname
+                    }
+                }
+            }
+        }
+    `)
+    const config = data.site.siteMetadata
 
-  return (
-    <div className="comments">
-      <DiscussionEmbed {...disqusConfig} />
-    </div>
-  );
+
+    const disqusConfig = {
+        shortname: config.post.disqusShortname,
+        config: {
+            url: `${config.siteUrl + slug}`,
+            identifier: slug,
+            title,
+        },
+    };
+
+    return (
+        <div className="comments">
+            {/* <DiscussionEmbed {...disqusConfig} /> */}
+        </div>
+    );
 };
 
 export default Comment;
